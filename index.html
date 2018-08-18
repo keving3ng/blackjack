@@ -1,0 +1,41 @@
+<html>
+
+  <head>
+    <title>21 Blackjack</title>
+  </head>
+
+  <body>
+    <canvas id="gameCanvas" width="900" height="800"></canvas>
+
+    <style>
+      #gameCanvas {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+    </style>
+
+    <script>
+      /** CONSTANTS **/
+      const CANVAS_BACKGROUND_COLOUR = 'white';
+      const CANVAS_BORDER_COLOUR = 'black';
+
+      // Get the canvas element
+      var gameCanvas = document.getElementById("gameCanvas");
+      // Return a 2D drawing context
+      var ctx = gameCanvas.getContext("2d");
+      // Select colours to fill and border canvas
+      ctx.fillStyle = CANVAS_BACKGROUND_COLOUR;
+      ctx.strokeStyle = CANVAS_BORDER_COLOUR;
+      // Draw the rectangle for the game area
+      ctx.fillRect (0, 0, gameCanvas.width, gameCanvas.height);
+      ctx.strokeRect(0, 0, gameCanvas.width, gameCanvas.height);
+
+
+
+    </script>
+
+  </body>
+
+</html>
