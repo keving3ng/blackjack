@@ -1,10 +1,19 @@
 # 21 Blackjack game
 import random
+import os
 
+"""CONSTANTS"""
 # For now, Ace will be always be one
 cardValues = {"Ace":1, "Two":2, "Three":3, "Four":4, "Five":5, "Six":6, "Seven":7, "Eight":8, "Nine":9, "Ten":10, "Jack":10, "Queen":10, "King":10}
 # Overall, suits are nothing but I'll include them for the aesthetic for later
 suits = ["Spades", "Hearts", "Diamonds", "Clubs"]
+BUSTED_TEXT_ART = "\n\t=======================\n\t‖       Busted!       ‖\n\t=======================\n"
+
+def clear():
+	if os.name == 'nt':
+		os.system('CLS')
+	if os.name == 'posix':
+		os.system('clear')
 
 # Generates a random card. Value, Suit
 def generateCard():
@@ -36,6 +45,11 @@ def cardTotal(hand):
 
 # Prints the cards on the screen
 def displayCards(p, d):
+    clear()
+
+    if isBust(p):
+        print(BUSTED_TEXT_ART)
+
     print("\nPlayer has :")
     for i in p:
         print(i[0]+" of "+ i[1])
@@ -61,9 +75,6 @@ def userAction(hand):
         print("stand")
     else:
         print("Invalid Input")
-
-    if isBust(hand):
-        print("\n\t=======================\n\t======= Busted! =======\n\t=======================\n")
 
 def playGame():
     playerCards = []
